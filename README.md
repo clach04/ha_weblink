@@ -26,3 +26,8 @@ Usage:
 
     python ha_weblink.py > index.html
 
+## Todo
+
+Icons not implemented. Checkout:
+
+  * Material Design Icons

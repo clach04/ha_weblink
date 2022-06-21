@@ -31,6 +31,7 @@ Usage:
 Icons not implemented. Checkout:
 
   * Material Design Icons
+      * https://github.com/clach04/ha_weblink/tree/mdi_icons_support
       * Google web font - https://developers.google.com/fonts/docs/material_icons
       * https://icon-sets.iconify.design/mdi/router-wireless/
 

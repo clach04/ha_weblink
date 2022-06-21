@@ -16,6 +16,7 @@ template_head = """<!DOCTYPE html>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>Startpage</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<style>
 		:root {
 			--base03:  #002b36;
@@ -124,6 +125,7 @@ template_head = """<!DOCTYPE html>
 		<form action="https://www.duckduckgo.com" aria-label="Search form">
 			<input style="width: 100%;" name="q" type="search" placeholder="Search query" autofocus />
 		</form>
+<span class="material-icons">face</span>
 		<h1>My services</h1>
 		<ul class="site-list">
 """
@@ -151,6 +153,16 @@ with open(yaml_file_name, 'r') as stream:
         str_template = '<a href="{url}">{name}</a>'  # FIXME cgi escape, use Mustache?
         str_template = '<a href="{url}">{name_escaped}</a></br>'  # similar to HA Weblink format (ignores icon) - FIXME use Mustache?
         str_template = '                        <li><img class="favicon" src="{url}/favicon.ico"/><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format (ignores icon) - FIXME use Mustache?
+        str_template = '                        <li><img class="favicon" src="{url}/favicon.ico"/><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format (ignores icon) - FIXME use Mustache?
+        if '@' in weblink['url'] and weblink.get('icon') is None:
+            weblink['icon'] = 'mdi:vpn lock'
+        if weblink.get('icon'):
+            if weblink['icon'].startswith('mdi:'):
+                weblink['icon'] = weblink['icon'][len('mdi:'):]
+            weblink['icon'] = weblink['icon'].replace('-', ' ')
+            if weblink['icon'] == 'harddisk':  # does not appear to be in https://fonts.google.com/icons?icon.category=Hardware
+                weblink['icon'] = 'save'  # not a great match
+            str_template = '                        <li><span class="material-icons">{icon}</span><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format
         print(str_template.format(**weblink))
         # TODO consider using Font Awesome (e.g. https://fontawesome.com/icons/router)
         # Material Design Icons/MDI

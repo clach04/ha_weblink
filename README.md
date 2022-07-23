@@ -12,7 +12,7 @@ If looking for a simple launcher dashboard take a look at:
   * https://github.com/mescon/Muximux
   * or even hand edited html file like https://www.reddit.com/r/selfhosted/comments/hjk2qd/comment/fwqvcyy
 
-This script will take an existing HA data yaml file and generate a quick-n-dirty html file.
+This script will take an existing HA data yaml file and generate a quick-n-dirty html file, without the need to migrate existing data.
 
 Sample, data.yaml:
 
@@ -28,10 +28,5 @@ Usage:
 
 ## Todo
 
-Icons not implemented. Checkout:
-
-  * Material Design Icons
-      * https://github.com/clach04/ha_weblink/tree/mdi_icons_support
-      * Google web font - https://developers.google.com/fonts/docs/material_icons
-      * https://icon-sets.iconify.design/mdi/router-wireless/
-
+Icons that specify a URL, extension to Home Assistant original implementation.
+Currently attempts to use favicon in root directory of URL (also an extension not present in original).

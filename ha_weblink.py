@@ -155,14 +155,11 @@ with open(yaml_file_name, 'r') as stream:
     for weblink in data:
         #pprint(weblink)  # DEBUG
         weblink['name_escaped'] = escape_html(weblink['name'])
-        if weblink['url'].endswith('/'):
-            weblink['url'] =  weblink['url'][:-1]  # simple rstrip of trailing slash /
-        str_template = '{name}\n{url}'  # FIXME href, use Mustache?
-        str_template = '{name}\n<a href="{url}">{url}</a>'  # FIXME cgi escape, use Mustache?
-        str_template = '<a href="{url}">{name}</a>'  # FIXME cgi escape, use Mustache?
-        str_template = '<a href="{url}">{name_escaped}</a></br>'  # similar to HA Weblink format (ignores icon) - FIXME use Mustache?
-        str_template = '                        <li><img class="favicon" src="{url}/favicon.ico"/><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format (ignores icon) - FIXME use Mustache?
-        str_template = '                        <li><img class="favicon" src="{url}/favicon.ico"/><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format (ignores icon) - FIXME use Mustache?
+        weblink['favicon_url'] = weblink['url']
+        if not weblink['favicon_url'].endswith('/'):
+            weblink['favicon_url'] += '/'
+        weblink['favicon_url'] += 'favicon.ico'
+        str_template = '                        <li><img class="favicon" src="{favicon_url}"/><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format (ignores icon) - FIXME use Mustache?
         if '@' in weblink['url'] and weblink.get('icon') is None:
             # looks like URL might have authentication information, do not attempt favicon loading for safety reasons (might leak user on connection attempt)
             weblink['icon'] = 'mdi:vpn lock'

@@ -155,6 +155,7 @@ with open(yaml_file_name, 'r') as stream:
         str_template = '                        <li><img class="favicon" src="{url}/favicon.ico"/><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format (ignores icon) - FIXME use Mustache?
         str_template = '                        <li><img class="favicon" src="{url}/favicon.ico"/><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format (ignores icon) - FIXME use Mustache?
         if '@' in weblink['url'] and weblink.get('icon') is None:
+            # looks like URL might have authentication information, do not attempt favicon loading for safety reasons (might leak user on connection attempt)
             weblink['icon'] = 'mdi:vpn lock'
         if weblink.get('icon'):
             if weblink['icon'].startswith('mdi:'):

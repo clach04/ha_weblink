@@ -5,6 +5,7 @@
 
 from cgi import escape as escape_html
 from pprint import pprint
+import sys
 
 import yaml  # pip install pyyaml
 
@@ -136,7 +137,12 @@ template_tail = """
 </html>
 """
 
-yaml_file_name = 'data.yaml'
+try:
+    # dumb argument parsing
+    argv = sys.argv
+    yaml_file_name = argv[1]
+except IndexError:
+    yaml_file_name = 'data.yaml'
 with open(yaml_file_name, 'r') as stream:
     data = yaml.safe_load(stream)
     data = data['weblink']['entities']

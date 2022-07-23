@@ -7,4 +7,7 @@ weblink:
           url: https://google.com/
         - name: Bing
           url: https://bing.com/
+        - name: Confusing
+          icon: https://google.com/favicon.ico
+          url: https://bing.com/
 

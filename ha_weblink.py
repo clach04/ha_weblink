@@ -164,12 +164,15 @@ with open(yaml_file_name, 'r') as stream:
             # looks like URL might have authentication information, do not attempt favicon loading for safety reasons (might leak user on connection attempt)
             weblink['icon'] = 'mdi:vpn lock'
         if weblink.get('icon'):
-            if weblink['icon'].startswith('mdi:'):
-                weblink['icon'] = weblink['icon'][len('mdi:'):]
-            weblink['icon'] = weblink['icon'].replace('-', ' ')
-            if weblink['icon'] == 'harddisk':  # does not appear to be in https://fonts.google.com/icons?icon.category=Hardware
-                weblink['icon'] = 'save'  # not a great match
-            str_template = '                        <li><span class="material-icons">{icon}</span><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format
+            if weblink['icon'].startswith('https://') or weblink['icon'].startswith('http://'):
+                weblink['favicon_url'] = weblink['icon']
+            else:
+                if weblink['icon'].startswith('mdi:'):
+                    weblink['icon'] = weblink['icon'][len('mdi:'):]
+                weblink['icon'] = weblink['icon'].replace('-', ' ')
+                if weblink['icon'] == 'harddisk':  # does not appear to be in https://fonts.google.com/icons?icon.category=Hardware
+                    weblink['icon'] = 'save'  # not a great match
+                str_template = '                        <li><span class="material-icons">{icon}</span><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format
         print(str_template.format(**weblink))
         # TODO consider using Font Awesome (e.g. https://fontawesome.com/icons/router)
         # Material Design Icons/MDI

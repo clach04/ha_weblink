@@ -27,14 +27,10 @@ Sample, data.yaml:
 		  url: http://127.0.0.1/
 		  icon: mdi:router-wireless
 
-Where icon names are Material Design Icons (MDI) come from https://fonts.google.com/icons. No other syntax is supported at this time.
+Where icon names are Material Design Icons (MDI) come from https://fonts.google.com/icons or a directl URL to the image/icon.
 If no icon is specified a favicon in default location (/favicon.ico) is assumed (an extension on the Home Assistant original implementation).
 
 Usage:
 
     python ha_weblink.py > index.html
 
-## Todo
-
-Icons that specify a URL, extension to Home Assistant original implementation.
-Currently attempts to use favicon in root directory of URL (also an extension not present in original).

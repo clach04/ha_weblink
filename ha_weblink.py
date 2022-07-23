@@ -124,9 +124,8 @@ template_head = """<!DOCTYPE html>
 	<body>
 		<h1>Startpage</h1>
 		<form action="https://www.duckduckgo.com" aria-label="Search form">
-			<input style="width: 100%;" name="q" type="search" placeholder="Search query" autofocus />
+			<input style="width: 100%;" name="q" type="search" placeholder="DuckDuckGo Search query" autofocus />
 		</form>
-<span class="material-icons">face</span>
 		<h1>My services</h1>
 		<ul class="site-list">
 """

@@ -133,6 +133,10 @@ template_head = """<!DOCTYPE html>
 
 template_tail = """
 		</ul>
+    Generated with
+    <a href="https://github.com/clach04/ha_weblink/">
+    https://github.com/clach04/ha_weblink/
+    </a>
 	</body>
 </html>
 """

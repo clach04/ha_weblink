@@ -1,6 +1,6 @@
 # ha_weblink
 
-Home Assistant weblink extractor and generator
+Home Assistant weblink extractor and static generator
 
 This is a clean room implementation of a Python script that will take an existing HA data yaml file and generate a quick-n-dirty html file, without the need to migrate existing data file/format/syntax.
 

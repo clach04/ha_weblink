@@ -1,6 +1,6 @@
 # ha_weblink
 
-Home Assistant weblink extractor and static generator
+Home Assistant weblink extractor and static generator for a simple link dashboard.
 
 This is a clean room implementation of a Python script that will take an existing HA data yaml file and generate a quick-n-dirty html file, without the need to migrate existing data file/format/syntax.
 
@@ -15,6 +15,7 @@ Old weblink:
 
 If looking for a simple launcher dashboard take a look at:
 
+  * https://github.com/pawelmalak/flame
   * https://github.com/bastienwirtz/homer
   * https://github.com/jeroenpardon/sui (and forks, e.g. https://github.com/magikmw/sui)
   * https://github.com/Tenzinn3/Managethis

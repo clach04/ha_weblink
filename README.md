@@ -40,8 +40,13 @@ Sample, data.yaml:
 		  url: http://127.0.0.1/
 		  icon: mdi:router-wireless
 
-Where icon names are Material Design Icons (MDI) come from https://fonts.google.com/icons or a direct URL to the image/icon.
-If no icon is specified a favicon in default location (/favicon.ico) is assumed (an extension on the Home Assistant original implementation).
+Where icon names are:
+
+  1. Material Design Icons (MDI) come from https://fonts.google.com/icons, E.g. `mdi:...` or without mdi prefix - just like Home Assistant (used to support)
+  2. direct URL to the image/icon, `http....` - NOT supported by HA
+  3. `text:any text or emjoi` - NOT supported by HA
+
+If no icon is specified a favicon in default location (/favicon.ico) is assumed, similar to #2 (an extension on the Home Assistant original implementation).
 Can easily pull icons straight from google with the following URL - `https://www.google.com/s2/favicons?domain=``{Serivce URL}&sz={PIXEL SIZE}`, for example https://www.google.com/s2/favicons?domain=https://www.portainer.io/&sz=256
 
 Usage:

@@ -3,7 +3,13 @@
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 #
 
-from cgi import escape as escape_html
+try:
+    # py2 (and <py3.8)
+    from cgi import escape as escape_html
+except ImportError:
+    # py3 - 3.8+
+    from html import escape as escape_html
+
 from pprint import pprint
 import sys
 
@@ -167,12 +173,18 @@ with open(yaml_file_name, 'r') as stream:
             if weblink['icon'].startswith('https://') or weblink['icon'].startswith('http://'):
                 weblink['favicon_url'] = weblink['icon']
             else:
-                if weblink['icon'].startswith('mdi:'):
-                    weblink['icon'] = weblink['icon'][len('mdi:'):]
-                weblink['icon'] = weblink['icon'].replace('-', ' ')
-                if weblink['icon'] == 'harddisk':  # does not appear to be in https://fonts.google.com/icons?icon.category=Hardware
-                    weblink['icon'] = 'save'  # not a great match
-                str_template = '                        <li><span class="material-icons">{icon}</span><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format
+                if weblink['icon'].startswith('text:'):
+                    weblink['icon'] = weblink['icon'][len('text:'):]
+                    # span class with some CSS?
+                    str_template = '                        <li><span>{icon}</span> <a href="{url}">{name_escaped}</a></li>'
+                else:
+                    # either icon name of MDI icon name
+                    if weblink['icon'].startswith('mdi:'):
+                        weblink['icon'] = weblink['icon'][len('mdi:'):]
+                    weblink['icon'] = weblink['icon'].replace('-', ' ')
+                    if weblink['icon'] == 'harddisk':  # does not appear to be in https://fonts.google.com/icons?icon.category=Hardware
+                        weblink['icon'] = 'save'  # not a great match
+                    str_template = '                        <li><span class="material-icons">{icon}</span><a href="{url}">{name_escaped}</a></li>'  # similar to HA Weblink format
         print(str_template.format(**weblink))
         # TODO consider using Font Awesome (e.g. https://fontawesome.com/icons/router)
         # Material Design Icons/MDI

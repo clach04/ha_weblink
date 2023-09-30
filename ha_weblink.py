@@ -24,6 +24,12 @@ template_head = """<!DOCTYPE html>
 		<meta name="viewport" content="width=device-width" />
 		<title>Startpage</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <! -- svg from https://www.svgrepo.com/svg/13695/star License: Public Domain CC0 1.0 Universal PD Dedication -->
+        <! --
+        <link rel="icon" type="image/svg+xml" href="ha_weblink.svg">
+        -->
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='us-ascii'%3F%3E%3Csvg height='800px' width='800px' version='1.1' id='star' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 47.94 47.94' xml:space='preserve'%3E%3Cpath style='fill:%23ED8A19;' d='M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757%0Ac2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042%0Ac0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685%0Ac-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528%0Ac-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956%0AC22.602,0.567,25.338,0.567,26.285,2.486z'/%3E%3C/svg%3E">
+        <! -- embed svg see https://yoksel.github.io/url-encoder/ -->
 		<style>
 		:root {
 			--base03:  #002b36;

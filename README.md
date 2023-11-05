@@ -15,6 +15,7 @@ Old weblink:
 
 If looking for a simple launcher dashboard take a look at:
 
+  * https://github.com/clach04/ha_weblink/issues/8
   * https://github.com/pawelmalak/flame
   * https://github.com/bastienwirtz/homer
   * https://github.com/jeroenpardon/sui (and forks, e.g. https://github.com/magikmw/sui)

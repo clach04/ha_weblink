@@ -10,4 +10,6 @@ weblink:
         - name: Confusing
           icon: https://google.com/favicon.ico
           url: https://bing.com/
-
+        - name: Google
+          icon: text:🇫🇷
+          url: https://google.fr/

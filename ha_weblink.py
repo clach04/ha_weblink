@@ -4,11 +4,11 @@
 #
 
 try:
-    # py2 (and <py3.8)
-    from cgi import escape as escape_html
-except ImportError:
     # py3 - 3.8+
     from html import escape as escape_html
+except ImportError:
+    # py2 (and <py3.8)
+    from cgi import escape as escape_html
 
 from pprint import pprint
 import sys
